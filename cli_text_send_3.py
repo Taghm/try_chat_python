@@ -27,7 +27,7 @@ def create_file():
     while(m):
             #class_send = input("Type 'm' to send a message \n:> ")
         #print("As %s" %user0.name)
-        file1.write("Anon Chatbox Users: ", list_users)
+        file1.write("Anon Chatbox Users: " + str(list_users)[1:-1])
         text_to_send = input(":> ")
         file1.write(user0.name + " :>" + text_to_send + "\n")
         print("You :> %s " %text_to_send)
