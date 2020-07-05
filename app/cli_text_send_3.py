@@ -59,7 +59,7 @@ def chat_dynamics():
         elif(input_chat == "e"):
             time_loc2 = time.localtime()
             time_s2 = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc2)
-            print("exiting... Program Close at ", time_s2)
+            print("exiting... Program Terminated at ", time_s2)
             exit()
 
 
@@ -72,4 +72,9 @@ if __name__ == "__main__":
     time_loc = time.localtime()
     time_s = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc)
     print("time at beginning of program: ", time_s)
+    #run  the chat_dynamics method
     chat_dynamics()
+    #push to github with subprocess
+    new_elements_add = subprocess.run(["git", "add ."], stdout=subprocess.DEVNULL)
+    new_elements_commit = subprocess.run(["git", "commit", "-m", "inserted new elements to chat"], stdout=subprocess.DEVNULL)
+    new_eleements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
