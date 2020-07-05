@@ -12,7 +12,7 @@ class User:
 
 user0 = User(input("Sign in as: "))
 list_users = []
-list_users.append(user0)
+list_users.append(user0.name)
 print("As %s" %user0.name)
 #create the file where to write text.
 def create_file():
