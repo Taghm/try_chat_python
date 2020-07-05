@@ -36,14 +36,8 @@ def show_file():
     #show_file = subprocess.run(["atom", "file0.txt"], stdout=subprocess.DEVNULL)
     file_to_read = requests.get("http://127.0.0.1:5000/static/text_folder/test_file1.txt")
     file_to_read.status_code == requests.codes.ok
-    print("Chatbox: ", file_to_read.text)
-    '''file3 = open(file_to_read, "r")
-    print(file3.read())
-    #print(show_file)'''
+    print("Anon Chatbox v.0.0.1: ", file_to_read.text)
 
-'''def get_input():
-    input_chat = input("Type 'm' to send  message; 's'  to see the whole chat. Type 'e' to exit \n:> ")
-    return input_chat'''
 
 def chat_dynamics():
     while True:
@@ -57,6 +51,10 @@ def chat_dynamics():
             show_file()
             chat_dynamics()
         elif(input_chat == "e"):
+            #push to github with subprocess before exiting.
+            new_elements_add = subprocess.run(["git", "add ."], stdout=subprocess.DEVNULL)
+            new_elements_commit = subprocess.run(["git", "commit", "-m", "'inserted new elements to chat'"], stdout=subprocess.DEVNULL)
+            new_eleements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
             time_loc2 = time.localtime()
             time_s2 = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc2)
             print("exiting... Program Terminated at ", time_s2)
@@ -74,7 +72,3 @@ if __name__ == "__main__":
     print("time at beginning of program: ", time_s)
     #run  the chat_dynamics method
     chat_dynamics()
-    #push to github with subprocess
-    new_elements_add = subprocess.run(["git", "add ."], stdout=subprocess.DEVNULL)
-    new_elements_commit = subprocess.run(["git", "commit", "-m", "inserted new elements to chat"], stdout=subprocess.DEVNULL)
-    new_eleements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
