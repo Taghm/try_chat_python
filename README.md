@@ -6,11 +6,14 @@ Using 2 terminals (Term 1 & Term 2)
 
 In Term 1
 1. git clone the repository and cd into it
-2. first run "flask run" to run "run.py" which runs our server: this help with the http requests in the code to retrieve newly written messages in the txt chat file
+2. type "flask run"
+This command runs "run.py" which runs our server: 
+this help in opening the 127.0.0.1 server where our app is hosted, it also helps with the python requests module in the code used to retrieve newly written messages in the txt chat file.
 
 In Term 2
-3. then cd into the "app" folder and type "python cli_text_send_3.py" and Enter
-Step 3 will open the Terminal App and allow you to send (m), view (s) or exit (e) the app.
+
+cd into the "app" folder and type "python cli_text_send_3.py" and Enter
+Step will open the Terminal App and allow you to send (m), view (s) or exit (e) the app.
 
 N.B. Remember to always check the http://127.0.0.1:5000 address with a browser to see if the server is working in order to get the recent text/messages.
 
