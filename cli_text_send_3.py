@@ -38,6 +38,17 @@ def show_file():
     file_to_read.status_code == requests.codes.ok
     print("Anon Chatbox v.0.0.1: ", file_to_read.text)
 
+def save_to_github():
+    #push to github with subprocess before exiting (finish later)
+    #first we have to pull to get recent changes from other users.
+    new_elements_pull = subprocess.run(["git", "pull"], stdout=subprocess.DEVNULL)
+    # then we can add everything in all directories + current one
+    new_elements_add = subprocess.run(["git", "add", "--all"], stdout=subprocess.DEVNULL)
+    #commit changes to github: the site serves as a server for our data.
+    new_elements_commit = subprocess.run(["git", "commit", "-m", "'new lines in chat app directories'"], stdout=subprocess.DEVNULL)
+    #push to the repo
+    new_elements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
+
 
 def chat_dynamics():
     while True:
@@ -45,21 +56,20 @@ def chat_dynamics():
         if(input_chat == "m"):
             print("type and send [enter]... ")
             create_file()
+            print("send it through the server...")
+            save_to_github()
+            print("message Sent!")
             chat_dynamics()
         elif(input_chat == "s"):
-            print("showing whole chat... ")
+            print("Collecting chat messages ...")
+            save_to_github()
+            print("Showing all messages:")
             show_file()
             chat_dynamics()
         elif(input_chat == "e"):
-            #push to github with subprocess before exiting (finish later)
-            #first we have to pull to get recent changes from other users.
-            new_elements_pull = subprocess.run(["git", "pull"], stdout=subprocess.DEVNULL)
-            # then we can add everything in all directories + current one
-            new_elements_add = subprocess.run(["git", "add", "--all"], stdout=subprocess.DEVNULL)
-            #commit changes to github: the site serves as a server for our data.
-            new_elements_commit = subprocess.run(["git", "commit", "-m", "'new lines in chat app directories'"], stdout=subprocess.DEVNULL)
-            #push to the repo
-            new_eleements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
+            print("saving before exiting...")
+            save_to_github()
+            print("Saved!")
             time_loc2 = time.localtime()
             time_s2 = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc2)
             print("exiting... Program Terminated at ", time_s2)
