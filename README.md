@@ -12,8 +12,8 @@ this help in opening the 127.0.0.1 server where our app is hosted, it also helps
 
 In Term 2
 
-cd into the "app" folder and type "python cli_text_send_3.py" and Enter
-Step will open the Terminal App and allow you to send (m), view (s) or exit (e) the app.
+type "python cli_text_send_3.py" and Enter
+This Step will open the Chat Terminal App and allow you to send (m), view (s) or exit (e) the app.
 
 N.B. Remember to always check the http://127.0.0.1:5000 address with a browser to see if the server is working in order to get the recent text/messages.
 
@@ -27,8 +27,7 @@ cd try_chat_python
 /try_chat_python$ flask run
 
 In Term 2
-/try_chat_python$ cd app
-/try_chat_python/app$ python cli_text_send_3.py
+/try_chat_python$ python cli_text_send_3.py
 
 
 To stop the server in Term 1:
