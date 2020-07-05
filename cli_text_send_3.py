@@ -11,6 +11,8 @@ class User:
         self.name = name
 
 user0 = User(input("Sign in as: "))
+list_users = []
+list_users.append(user0)
 print("As %s" %user0.name)
 #create the file where to write text.
 def create_file():
@@ -25,6 +27,7 @@ def create_file():
     while(m):
             #class_send = input("Type 'm' to send a message \n:> ")
         #print("As %s" %user0.name)
+        file1.write("Anon Chatbox Users: ", list_users)
         text_to_send = input(":> ")
         file1.write(user0.name + " :>" + text_to_send + "\n")
         print("You :> %s " %text_to_send)
@@ -85,5 +88,6 @@ if __name__ == "__main__":
     time_loc = time.localtime()
     time_s = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc)
     print("time at beginning of program: ", time_s)
+    print("Anon Chatbox Users: ", list_users)
     #run  the chat_dynamics method
     chat_dynamics()
