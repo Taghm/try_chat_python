@@ -58,8 +58,8 @@ def chat_dynamics():
             new_elements_add = subprocess.run(["git", "add", "--all"], stdout=subprocess.DEVNULL)
             #commit changes to github: the site serves as a server for our data.
             new_elements_commit = subprocess.run(["git", "commit", "-m", "'new lines in chat app directories'"], stdout=subprocess.DEVNULL)
-            #push
-            new_eleements_push = subprocess.run(["git", "push", "-u", "origin master"], stdout=subprocess.DEVNULL)
+            #push to the repo
+            new_eleements_push = subprocess.run(["git", "push", "-u", "origin", "master"], stdout=subprocess.DEVNULL)
             time_loc2 = time.localtime()
             time_s2 = time.strftime("%m/%d/%Y, %H:%M:%S", time_loc2)
             print("exiting... Program Terminated at ", time_s2)
